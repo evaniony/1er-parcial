@@ -22,6 +22,7 @@ def menu():
         elif opcion == 8:
             print("fin.")
             break
+        print()
         limpiar_consola()
 
 menu()

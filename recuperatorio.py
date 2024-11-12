@@ -36,7 +36,7 @@ def imprimir_matriz(matriz):
             print(f"{matriz[i][j]}", end = " ")
         print("")
 
-partido_politico = inicializar_matriz(2, 4)
+partido_politico = inicializar_matriz(5, 4)
 I_LISTA = 0
 I_VOTO_MANANA = 1
 I_VOTO_TARDE = 2
@@ -53,7 +53,7 @@ def cargar_votos(lista: list, error: str) -> list:
     La tarea se repite con la misma lista y para los 3 turnos.
     Finalmente, guarda esos valores en la matriz lista.
     """
-    for voto in range(len(lista)):
+    for voto in range(len(lista)): #matriz
         numero_de_lista = random.randint(100, 999)
         votos_manana = int(input(f"PARTIDO {numero_de_lista}. INGRESO DE VOTOS DE LA MANANA: "))
         while votos_manana < 1:
@@ -159,13 +159,18 @@ def ballotage(lista: list) -> list:
         suma = lista[i][I_VOTO_MANANA] + lista[i][I_VOTO_TARDE] + lista[i][I_VOTO_NOCHE]
         porcentaje = (suma / total_general) * 100
 
-        if porcentaje > 50:
-            print("No hay segunda vuelta")
+        porcentaje_manana = (lista[i][I_VOTO_MANANA] / total_general) * 100
+        porcentaje_tarde = (lista[i][I_VOTO_TARDE] / total_general) * 100
+        porcentaje_noche = (lista[i][I_VOTO_NOCHE] / total_general) * 100
+
+
+        if (porcentaje == 50.0) or (porcentaje == porcentaje_manana) or (porcentaje == porcentaje_tarde) or (porcentaje == porcentaje_noche):
+            print(f"Hay segunda vuelta; con {lista[i][I_LISTA]}")
             flag = True
             if flag == True:
                 break
     if flag == False:
-            print(f"Hay segunda vuelta; con {lista[i][I_LISTA]}")
+            print("No hay segunda vuelta")
 
 #7. Realizar segunda vuelta:Se encarga de realizar la segunda vuelta electoral con los
 """ dos candidatos más votados. Se le pide al usuario la cantidad de alumnos que fueron
@@ -177,9 +182,9 @@ que no hubo segunda vuelta.
 La cantidad de votos por cada turno debe ser la misma que hubo en la primer vuelta. """
 
 
-#cargar_votos(partido_politico, "EL VOTO NO PUEDE SER INFERIOR A 1; POR FAVOR, REINGRESE LOS VOTOS DE")
+cargar_votos(partido_politico, "EL VOTO NO PUEDE SER INFERIOR A 1; POR FAVOR, REINGRESE LOS VOTOS DE")
 #mostar_votos(partido_politico)
 #mostar_votos_turno_manana(partido_politico)
 #listas_menor_votos(partido_politico)
 #turno_mas_votado(partido_politico)
-#ballotage(partido_politico)
+ballotage(partido_politico)
