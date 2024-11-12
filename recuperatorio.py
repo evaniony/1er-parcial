@@ -182,9 +182,9 @@ que no hubo segunda vuelta.
 La cantidad de votos por cada turno debe ser la misma que hubo en la primer vuelta. """
 
 
-cargar_votos(partido_politico, "EL VOTO NO PUEDE SER INFERIOR A 1; POR FAVOR, REINGRESE LOS VOTOS DE")
+#cargar_votos(partido_politico, "EL VOTO NO PUEDE SER INFERIOR A 1; POR FAVOR, REINGRESE LOS VOTOS DE")
 #mostar_votos(partido_politico)
 #mostar_votos_turno_manana(partido_politico)
 #listas_menor_votos(partido_politico)
 #turno_mas_votado(partido_politico)
-ballotage(partido_politico)
+#ballotage(partido_politico)
